@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="carPartCode">  
+  <!-- 零件信息表 sql -->
+  <select id="getCarPartCodeInfo" resultClass="com.bca.utool.test.ui.po.dmc.codemanage.car.CarPartCodePO" parameterClass="com.bca.utool.test.ui.bo.dmc.codemanage.car.CarPartCodeBO">
+    select 
+      t.PART_ID as "partId",
+      t.PART_NAME as "partName",
+      t.PART_DISCRIBLE as "partDiscrible",
+      t.PART_PRICE as "partPrice",
+      t.IS_USED as "isUsed",
+      t.SORT_NO as "sortNo"
+    from CAR_PART_CODE t where 0=0 
+     <dynamic>
+      <isNotEmpty prepend="and" property="partId">
+         t.PART_ID like '%'||#partId#||'%'
+      </isNotEmpty>
+      <isNotEmpty prepend="and" property="partName">
+         t.PART_NAME like '%'||#partName#||'%'
+      </isNotEmpty>      
+      <isNotNull prepend=" order by " property="sortCol">
+            $sortCol$
+        <isNotNull property="sortOrder">
+          $sortOrder$
+        </isNotNull>
+      </isNotNull>
+    </dynamic>   
+  </select>
+<insert id="addCarPartCodeInfo" parameterClass="com.bca.utool.test.ui.po.dmc.codemanage.car.CarPartCodePO">   
+    <![CDATA[
+    insert into CAR_PART_CODE
+      (    PART_ID,
+    PART_NAME,
+    PART_DISCRIBLE,
+    PART_PRICE,
+    IS_USED,
+    SORT_NO)
+    values
+      (    #partId#,
+    #partName#,
+    #partDiscrible#,
+    #partPrice#,
+    #isUsed#,
+    #sortNo#)
+   
+    ]]>   
+</insert>
+<delete id="deleteCarPartCodeInfo" parameterClass="com.bca.utool.test.ui.bo.dmc.codemanage.car.CarPartCodeBO">
+  delete from CAR_PART_CODE where PART_ID=#partId#
+</delete>
+<select id="getOneCarPartCodeInfo" resultClass="com.bca.utool.test.ui.po.dmc.codemanage.car.CarPartCodePO" parameterClass="com.bca.utool.test.ui.bo.dmc.codemanage.car.CarPartCodeBO">
+  select 
+      t.PART_ID as "partId",
+      t.PART_NAME as "partName",
+      t.PART_DISCRIBLE as "partDiscrible",
+      t.PART_PRICE as "partPrice",
+      t.IS_USED as "isUsed",
+      t.SORT_NO as "sortNo"
+    from 
+      CAR_PART_CODE t
+    where PART_ID=#partId#
+
+</select>
+<update id="updateCarPartCodeInfo" parameterClass="com.bca.utool.test.ui.po.dmc.codemanage.car.CarPartCodePO" >
+  update CAR_PART_CODE set
+	       PART_NAME = #partName#,
+	       PART_DISCRIBLE = #partDiscrible#,
+	       PART_PRICE = #partPrice#,
+	       IS_USED = #isUsed#,
+	       SORT_NO = #sortNo#
+  where PART_ID = #partId#
+</update>
+</sqlMap>

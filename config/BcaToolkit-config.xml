@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+  <BasicSettings>
+    <isInDebug>false</isInDebug>
+    <zipRmiObjects>false</zipRmiObjects>
+    <defaultEditingFlowName/>
+    <defaultEditingFlowVer>0</defaultEditingFlowVer>
+    <propertyNameTextMode>false</propertyNameTextMode>
+    <gridEnable>false</gridEnable>
+    <persistTopComponentEnable>false</persistTopComponentEnable>
+    <autoOpenLineCustDialog>false</autoOpenLineCustDialog>
+    <detaSaveSerial_4_AutoClearHistory>0</detaSaveSerial_4_AutoClearHistory>
+    <externalEditor/>
+    <externalCompareTool/>
+    <sampleFileLinesToLoad>0</sampleFileLinesToLoad>
+    <logEnvOnSrcCreate>false</logEnvOnSrcCreate>
+  </BasicSettings>
+  <DefaultFont>
+    <style>0</style>
+    <size>12</size>
+  </DefaultFont>
+  <DebugConfig>
+    <alwaysOpenArgInputDialog>false</alwaysOpenArgInputDialog>
+  </DebugConfig>
+  <DataWizConfig>
+    <sampleDataRows>100</sampleDataRows>
+    <pojoOutputDir>./pojos</pojoOutputDir>
+    <pkConstructorEnable>false</pkConstructorEnable>
+    <fullConstructorEnable>false</fullConstructorEnable>
+    <viewMetaOnClickTable>false</viewMetaOnClickTable>
+    <viewSampleDataOnClickTable>false</viewSampleDataOnClickTable>
+    <defaultPackage>#flowPackage#.orm</defaultPackage>
+    <pojoPackages/>
+    <TypeConverter>
+      <converter_1>
+        <FieldNamePattern>*Enable</FieldNamePattern>
+        <TargetJavaType>boolean</TargetJavaType>
+      </converter_1>
+      <caseSensitive>false</caseSensitive>
+    </TypeConverter>
+  </DataWizConfig>
+  <CodeFactory>
+    <author>ZKY-grp</author>
+    <encoding>UTF-8</encoding>
+    <orgnization>BeijingShengJie http://www.sjcrm.com</orgnization>
+    <defaultFactory/>
+  </CodeFactory>
+</configuration>

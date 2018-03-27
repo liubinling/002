@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+<!--以下部分创建3个命令Command-->
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            name="Sample Category"
+            id="BcaPlugins.commands.category">
+      </category>
+      <command
+            name="打开代码工厂"
+            categoryId="BcaPlugins.commands.category"
+            id="BcaPlugins.commands.Start_CodeFactory">
+      </command>
+      <command
+            name="运行项目"
+            categoryId="BcaPlugins.commands.category"
+            id="BcaPlugins.commands.RunPro">
+      </command>
+       <command
+            name="New MicroService Project"
+            categoryId="BcaPlugins.commands.category"
+            id="BcaPlugins.commands.NMP">
+      </command>
+      
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="BcaPlugins.commands.Start_CodeFactory"
+            class="bcaplugins.handlers.BcaHandler">
+      </handler>
+      <handler
+            commandId="BcaPlugins.commands.RunPro"
+            class="bcaplugins.handlers.RunProHandler">
+      </handler>
+      <handler
+            commandId="BcaPlugins.commands.NMP"
+            class="bcaplugins.handlers.NMPHandler">
+      </handler>
+      
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="BcaPlugins.commands.Start_CodeFactory"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+6"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </key>
+   </extension>
+   <!--3个命令创建完毕-->
+   <!--以下部分创建一个Eclipse菜单栏中的菜单，菜单中包含3个子菜单，分别绑定了1个命令Command-->
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               label="BcaToolkit"
+               mnemonic="M"
+               id="BcaPlugins.menus.sampleMenu">
+            <command
+                  commandId="BcaPlugins.commands.Start_CodeFactory"
+                  mnemonic="S"
+                  id="BcaPlugins.menus.StartCodeFactoryCommand">
+            </command>
+           <command
+                  commandId="BcaPlugins.commands.RunPro"
+                  mnemonic="S"
+                  id="BcaPlugins.menus.RunProCommand">
+            </command>
+            <command
+                  commandId="BcaPlugins.commands.NMP"
+                  mnemonic="S"
+                  id="BcaPlugins.menus.NMPCommand">
+            </command>
+         </menu>
+         
+      </menuContribution>
+      <!--菜单创建完毕-->
+      <!--以下部分创建1个Eclipse工具栏按钮，绑定了上面创建的第1个命令Command-->
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="BcaPlugins.toolbars.sampleToolbar">
+            <command
+                  commandId="BcaPlugins.commands.Start_CodeFactory"
+                  icon="icons/start.png"
+                  tooltip="打开代码工厂"
+                  id="BcaPlugins.toolbars.sampleCommand">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+   <!--工具栏按钮创建完毕-->
+   <!--以下部分创建1个上下文菜单选项，并且是面向对象IProject-->
+   <extension
+   		point="org.eclipse.ui.popupMenus">
+   		<objectContribution
+   			adaptable="true"
+   			id="BcaPlugins.popupMenus.objectMenu"
+   			objectClass="org.eclipse.core.resources.IResource">
+   			<menu
+   				id="BcaPlugins.popupMenus.objectMenu"
+   				label="BcaToolkit选项"
+   				path="additions">
+   				<separator name="BcaObjectMenuSeprator"> </separator>
+   			</menu>
+   			<action
+   				class="bcaplugins.handlers.OpenFilesListAction"
+   				enablesFor="1"
+   				icon="icons/filesList.jpg"
+   				id="BcaPlugins.popupMenus.objectMenu.OpenFilesListAction"
+   				label="打开文件列表"
+   				menubarPath="BcaPlugins.popupMenus.objectMenu/OpenFilesListAction"
+   				style="push">
+   			</action>
+   			</objectContribution>
+   </extension>
+   
+
+</plugin>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="GBK"?>
+
+<bwf>
+  <BasicSettings>
+    <!--基本参数配置-->
+    <prop key="runningTipsMask" val="63"/>
+    <prop key="isBLogEnabled" val="no"/>
+    <prop key="isTraceLogEnabled" val="no"/>
+    <prop key="sqlLogEnabled" val="no"/>
+    <prop key="bweHost" val="127.0.0.1"/>
+    <prop key="flowCompileClassPaths" val=""/>
+    <prop key="active-config-grp" val="default"/>
+    <prop key="sysEncoding" val="GBK"/>
+    <prop key="comm-rmi-port-seg" val="1530-1533;1536;1538"/>
+    <prop key="logLevelsForStackPrinting" val="warn"/>
+    <prop key="magentHost" val="127.0.0.1"/>
+    <prop key="agentID_ofMagent" val="magent"/>
+    <prop key="security-manager-class" val="java.rmi.RMISecurityManager"/>
+    <prop key="rmi-bind-ip" val="_auto_"/>
+    <prop key="rmi-connect-max-try-times" val="10"/>
+    <prop key="rmi-connect-try-interval" val="5000"/>
+    <prop key="business-log-thread-sleep" val="2000"/>
+    <prop key="business-log-timestamp-interval" val="10000"/>
+    <prop key="PolicyOnAllConnectionPassCheckFail" val="KillPath"/>
+    <prop key="defaultWfPackage" val="com.bca.app.flow.test"/>
+    <prop key="deleteCreatedSource" val="yes"/>
+    <prop key="flow-id-range" val="10000-99999"/>
+    <prop key="passwordFactory" val=""/>
+  </BasicSettings>
+  <server-groups default="bonc-dss">
+    <bonc-dss>
+      <prop key="bca-base" val="//127.0.0.1:1099"/>
+      <prop key="bca-meta" val="//127.0.0.1:1099"/>
+      <prop key="bca-ps" val="//127.0.0.1:1099"/>
+      <prop key="bca-bwe" val="//127.0.0.1:1099"/>
+      <prop key="bca-dagent" val="//127.0.0.1:1099"/>
+      <prop key="bca-timer" val="//127.0.0.1:1099"/>
+      <prop key="bca-util" val="//127.0.0.1:1099"/>
+      <prop key="bca-magent" val="//127.0.0.1:1099"/>
+      <prop key="bca-ivr" val="//127.0.0.1:1099"/>
+      <prop key="bca-shell" val="//127.0.0.1:1099"/>
+      <prop key="bca-dist" val="//127.0.0.1:1099"/>
+    </bonc-dss>
+  </server-groups>
+  <runtimeDataSavingLevelDatas>
+    <level_0 level="0" saveInterval="00D 00H 00M" DetaRuntimeSerial_4_AutoClearHistory="100"/>
+  </runtimeDataSavingLevelDatas>
+  <regularModelCharactorTransList>
+    <trans orig_str="*" target_str=".*"/>
+  </regularModelCharactorTransList>
+  <ipMapList>
+    <IpMap orig_ip="OrignalIpAddr_PleaseModify" mapped_ip="MappedIpAddr_PleaseModify"/>
+  </ipMapList>
+</bwf>

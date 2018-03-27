@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <!--
+/** @author: 北京华夏翰科科技有限公司-工具软件部.
+ *           http://www.hxhk.com.cn
+ */
+-->
+  <class name="com.bca.toolkit.top.tools.sql.impl.util.w.UiMemMap" table="UI_MEM_MAPS">
+    <meta attribute="implement-equals" inherit="false">true</meta>
+    <composite-id>
+      <key-property name="value" type="java.lang.String" column="VALUE" length="100"/>
+    </composite-id>
+    <property name="label" type="java.lang.String" column="LABEL" length="100"/>
+  </class>
+</hibernate-mapping>

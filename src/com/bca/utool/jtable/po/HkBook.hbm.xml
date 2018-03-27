@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="gb2312"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <!--
+/** @author: 北京华夏翰科科技有限公司-工具软件部.
+ *           http://www.hxhk.com.cn
+ */
+-->
+  <class name="com.bca.utool.jtable.po.HkBook" table="HK_BOOK">
+    <meta attribute="implement-equals" inherit="false">true</meta>
+    <composite-id>
+      <key-property name="bookId" type="int" column="BOOK_ID" length="22"/>
+    </composite-id>
+    <property name="bookName" type="java.lang.String" column="BOOK_NAME" length="50"/>
+    <property name="bookAuthor" type="java.lang.String" column="BOOK_AUTHOR" length="20"/>
+    <property name="bookDate" type="java.sql.Timestamp" column="BOOK_DATE" length="7"/>
+    <property name="bookPublish" type="java.lang.String" column="BOOK_PUBLISH" length="50"/>
+  </class>
+</hibernate-mapping>
